@@ -1,0 +1,29 @@
+# Build
+bin
+docs
+*.o
+CHANGELOG.md
+*.pdf
+
+# Run
+*.out
+*.huff
+
+# Coverage
+*.gcda
+*.gcno
+*.gcov
+coverage/
+
+# Memory
+*.rpt
+
+# Temporary files
+*.tmp
+tmp.*
+*.log
+*.cache
+
+# IDE
+.vscode
+*.code-workspace
