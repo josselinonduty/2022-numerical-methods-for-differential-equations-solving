@@ -14,7 +14,7 @@ SRCDIR=src
 INCLUDEDIR=include
 SRC=$(wildcard $(SRCDIR)/*.c) $(wildcard $(SRCDIR)/**/*.c)
 OBJ=$(SRC:%.c=%.o)
-CFLAGSBASE=-Wall -fPIC -pedantic -std=c99 -I$(INCLUDEDIR)
+CFLAGSBASE=-Wall -fPIC -pedantic -std=c11 -I$(INCLUDEDIR)
 CFLAGS=$(CFLAGSBASE) -O3
 LDFLAGSBASE=-lm
 LDFLAGS=$(LDFLAGSBASE)

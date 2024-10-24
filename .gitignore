@@ -4,6 +4,7 @@ docs
 *.o
 CHANGELOG.md
 *.pdf
+*.csv
 
 # Run
 *.out
