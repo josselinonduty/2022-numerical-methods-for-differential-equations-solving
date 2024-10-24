@@ -14,5 +14,11 @@ int main(int argc, char **argv)
 	matrix_save_csv("./export/middle_point.csv", matrix);
 	matrix_free(&matrix);
 
+	matrix = solve_runge_kutta_4(T, I, y0);
+	matrix_save_csv("./export/runge_kutta_4.csv", matrix);
+	matrix_free(&matrix);
+
+	vector_free(&y0);
+
 	return 0;
 }
