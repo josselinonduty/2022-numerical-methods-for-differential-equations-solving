@@ -22,6 +22,10 @@ int main(int argc, char **argv)
 	matrix_save_csv("./export/bashforth.csv", matrix);
 	matrix_free(&matrix);
 
+	matrix = solve_adams_moulton(T, I, y0, 10e-3, 10e3);
+	matrix_save_csv("./export/adams_moulton.csv", matrix);
+	matrix_free(&matrix);
+
 	vector_free(&y0);
 
 	return 0;
