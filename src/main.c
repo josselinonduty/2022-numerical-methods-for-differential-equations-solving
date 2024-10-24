@@ -2,24 +2,18 @@
 #include <stdlib.h>
 
 #include "functions.h"
+#include "methods.h"
 
 int main(int argc, char **argv)
 {
-	long double _v0[2];
-	_v0[0] = 0;
-	_v0[1] = 1;
-	vector_t vpred = vector_create(_v0);
+	long double T = 15;
+	long int I = 10000;
+	vector_t y0 = vector_create((vector_t) & ((long double[2]) { -2, 2 }));
 
-	for (int i = 0; i < 5; i++) {
-		vector_t vi = van_der_pol(0, vpred);
-		vector_free(&vpred);
+	matrix_t matrix = solve_middle_point(T, I, y0);
 
-		vpred = vi;
-		vector_display(vi);
-		printf("\n");
-	}
-
-	vector_free(&vpred);
+	matrix_save_csv("./export/middle_point.csv", matrix);
+	matrix_free(&matrix);
 
 	return 0;
 }
