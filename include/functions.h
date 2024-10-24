@@ -1,6 +1,8 @@
 #ifndef FUNCTIONS_H
 #define FUNCTIONS_H
 
+#include <stdlib.h>
+
 #define C (long double) 0.4
 #define N (long unsigned int) 2
 
@@ -17,7 +19,7 @@ void vector_display(const vector_t vector);
 void matrix_display(const matrix_t matrix);
 void matrix_save_csv(const char *filename, const matrix_t matrix);
 
-vector_t vector_create(vector_t vector);
+vector_t vector_copy(vector_t vector);
 void vector_free(vector_t *vector);
 
 matrix_t matrix_create(size_t n);

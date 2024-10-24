@@ -7,9 +7,9 @@
 matrix_t solve_middle_point(long double T, long int I, vector_t y0)
 {
 	matrix_t matrix = matrix_create(I + 1);
-	matrix_append(&matrix, y0);
+	matrix_append(&matrix, vector_copy(y0));
 
-	vector_t y_i = vector_create(y0);
+	vector_t y_i = vector_copy(y0);
 	vector_t y_next, y_inter, y_inter_update;
 
 	long double h = T / I;
@@ -25,10 +25,9 @@ matrix_t solve_middle_point(long double T, long int I, vector_t y0)
 		y_next = y_i;
 		for (int n = 0; n < N; n++) {
 			y_next[n] += h * y_inter_update[n];
-			y_i[n] = y_next[n];
 		}
 
-		matrix_append(&matrix, vector_create(y_next));
+		matrix_append(&matrix, vector_copy(y_next));
 		vector_free(&y_inter);
 		vector_free(&y_inter_update);
 	}

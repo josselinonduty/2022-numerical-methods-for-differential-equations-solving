@@ -30,7 +30,7 @@ void matrix_save_csv(const char *filename, const matrix_t matrix)
 	fclose(file);
 }
 
-vector_t vector_create(vector_t vector)
+vector_t vector_copy(vector_t vector)
 {
 	vector_t vec = (vector_t) malloc(N * sizeof(long double));
 
@@ -81,10 +81,10 @@ void matrix_free(matrix_t *matrix)
 
 vector_t van_der_pol(step_t t, vector_t prev)
 {
-	return vector_create((vector_t) & ((long double[2]) {
-					   prev[1],
-					   C * (1 -
-						prev[0] * prev[0]) *
-					   prev[1] - prev[0]
-					   }));
+	return vector_copy((vector_t) & ((long double[2]) {
+					 prev[1],
+					 C * (1 -
+					      prev[0] * prev[0]) *
+					 prev[1] - prev[0]
+					 }));
 }
