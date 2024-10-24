@@ -18,8 +18,8 @@ int main(int argc, char **argv)
 	matrix_save_csv("./export/runge_kutta_4.csv", matrix);
 	matrix_free(&matrix);
 
-	matrix = solve_bashforth(T, I, y0);
-	matrix_save_csv("./export/bashforth.csv", matrix);
+	matrix = solve_adams_bashforth(T, I, y0);
+	matrix_save_csv("./export/adams_bashforth.csv", matrix);
 	matrix_free(&matrix);
 
 	matrix = solve_adams_moulton(T, I, y0, 10e-3, 10e3);

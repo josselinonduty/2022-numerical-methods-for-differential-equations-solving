@@ -4,7 +4,7 @@
 #include "functions.h"
 #include "methods.h"
 
-matrix_t solve_bashforth(long double T, long int I, vector_t y0)
+matrix_t solve_adams_bashforth(long double T, long int I, vector_t y0)
 {
 	matrix_t matrix = matrix_create(I + 1);
 	matrix_append(&matrix, vector_copy(y0));
